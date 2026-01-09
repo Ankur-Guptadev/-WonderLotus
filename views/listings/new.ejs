@@ -1,0 +1,50 @@
+<% layout("/layouts/boilerplate") %> <%# this line is used to specify the layout file for this EJS template %>
+<div class="row mt-3">  <%# this div is used to create a row using Bootstrap grid system %>
+    <div class="col-8 offset-2">   <%# this div is used to center the form on the page using Bootstrap grid system %>
+   <body>   <%# this is the body of entire page of new.ejs in this a form is used %>
+     <br/><br/>
+    <h3>Create New Listing</h3>
+     <form method="POST" action="/listings" novalidate class="needs-validation">   <%# form to create new listing for making new Route triggured %>
+       <div class="mb-3">  <%# div to create margin bottom using bootstrap class %>
+         <label for="title" class="form-label">Title</label>  <%# label for title input field & here form-label is bootstrap class %>
+         <input name="listing[title]" placeholder="Add a catchy title" type="text" class="form-control" required/>         <%# input field for title & where form-control is bootstrap class %>
+         <div class="valid-feedback">Title looks good!</div> <%# div to show valid feedback using bootstrap class %>
+        </div>
+       <div class="mb-3"> <%# In this <div> the class "mb-3" is a Bootstrap utility class that adds a margin-bottom of 1rem (16px) to the element, providing spacing between form elements for better visual separation and readability. %>
+          <label for="description" class="form-label">Description</label>
+         <textarea name="listing[description]"  class="form-control" required></textarea>   <%# textarea for description %>
+           <div class="invalid-feedback">Please enter a short description</div>
+       </div>   
+
+        <div class="mb-3">
+             <label for="image" class="form-label">Image Link</label>
+             <input name="listing[image]" placeholder="enter image URL/Link" type="text" class="form-control"/>  <%# in this listing is object and [image] is its property or field %>
+        </div>
+
+        <div class="row">
+            <div class="mb-3 col-md-4"> <%# col-md-4 is bootstrap class to create column of width 4 on medium and larger screens %>
+             <label for="price" class="form-label">Price</label>
+             <input name="listing[price]" placeholder="1200"  class="form-control" required/>
+                <div class="invalid-feedback">Price should be valid!</div>
+            </div>
+
+           <div class="mb-3 col-md-8"> <%# col-md-8 is bootstrap class to create column of width 8 on medium and larger screens %>
+            <label for="country" class="form-label">Country</label>
+            <input name="listing[country]" placeholder="India" type="text" class="form-control" required/> 
+            <div class="invalid-feedback">Country name should be valid!</div>
+           </div>
+        </div>
+
+        <div class="mb-3">
+             <label for="lacation" class="form-label">Location</label>
+             <input name="listing[location]" placeholder="Jaipur, Rajasthan" type="text" class="form-control" required/>
+             <div class="invalid-feedback">Location should be valid</div>
+        </div>
+
+  
+        <button class="btn btn-dark add-btn mt-3">Add</button> <%# (class= btn btn-dark) is given to get bootstrap button styling, and (mt-3) merans- margin top 3 %>
+
+      </form>
+    </body>
+   </div>
+ </div>

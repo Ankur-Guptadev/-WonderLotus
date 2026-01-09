@@ -1,0 +1,28 @@
+<% layout("/layouts/boilerplate") %>  <%# this line is used to specify the layout file for this EJS template %>
+<body>   <%# this is the body of entire page in this a forloop is used %>
+    <h3>All Listings</h3>
+    <!-- <form method="GET" action="/listings/new">  <%# form to create new listing for making new Route triggured %>
+        <button>Create New Listing</button>  <%# button to submit the form %>
+    </form> -->
+    
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1"> <%# in this we have defined a bootstrap grid layout with 3 columns for large screens, 2 columns for medium screens, and 1 column for small screens %>
+     <% for(let listing of allListings) { %>
+        <a href="/listings/<%= listing._id %>" class="listing-link"> <%# here each listing is wrapped in an anchor tag to make it clickable and navigate to the detailed view (ShowRoute) of that listing %>
+    <div class="card col">  <%# Bootstrap card component to display each listing %> <%# setting width of card to 20rem %> <%#  col--> class is used to make each card responsive and align in a grid layout %>
+        <img src="<%= listing.image %>" class="card-img-top" alt="listing_image" style="height: 20rem" />  <%# Placeholder for listing image and listing.image is used to fetch image from database %>
+        <div class="card-img-overlay">...</div> <%# Overlay div for potential future use for adding text or icons over the image %>
+        <div class="card-body">
+            <p class="card-text">
+               <b><%=listing.title%> </b><br>  <%# Display listing title %>
+              &#8377;  <%=listing.price.toLocaleString("en-IN")%> / night        <%# Display listing price formatted to Indian currency format using toLocaleString method %>
+            </p>
+        </div>
+    </div>
+    </a>
+    <%} %>   
+    </div>
+    
+    </body>
+ 
+
